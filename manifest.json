@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Lichess Countdown",
+  "version": "1.0",
+  "description": "Plays countdown audio alerts during Lichess games.",
+  "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://lichess.org/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["audio/*"],
+      "matches": ["*://lichess.org/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
